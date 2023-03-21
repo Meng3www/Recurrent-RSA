@@ -2,8 +2,8 @@ from tqdm import tqdm
 import numpy as np
 import time
 import math
-import scipy
-import scipy.stats
+# import scipy
+# import scipy.stats
 import copy
 from utils.config import *
 from bayesian_agents.rsaState import RSA_State

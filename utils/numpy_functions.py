@@ -11,3 +11,11 @@ def uniform_vector(length):
 def make_initial_prior(initial_image_prior,initial_rationality_prior,initial_speaker_prior):
 	
 	return np.log(np.multiply.outer(initial_image_prior,np.multiply.outer(initial_rationality_prior,initial_speaker_prior)))
+
+
+if __name__ == '__main__':
+    x = [4, 6, 8]
+    e_x = np.exp(x - np.max(x))
+    print(e_x / e_x.sum())
+    print(uniform_vector(10))
+

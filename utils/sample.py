@@ -40,9 +40,10 @@ def load_image(url, transform=None):
     import requests
 
     hashed_url = re.sub('/','',url)
+    hashed_url = re.sub(':','',hashed_url)
 
     response = requests.get(url, stream=True)
-    with open('data/google_images/img'+hashed_url+'.jpg', 'wb') as out_file:
+    with open('data/google_images/'+hashed_url+'.jpg', 'wb') as out_file:
         shutil.copyfileobj(response.raw, out_file)
     # del response
     print(url,response)

@@ -3,11 +3,11 @@ import itertools
 import scipy
 import scipy.stats
 import numpy as np
-import math
-from PIL import Image as PIL_Image
-from keras.preprocessing import image
-from keras.models import load_model
-from utils.image_and_text_utils import index_to_char,char_to_index
+# import math
+# from PIL import Image as PIL_Image
+# from keras.preprocessing import image
+# from keras.models import load_model
+# from utils.image_and_text_utils import index_to_char,char_to_index
 from utils.config import *
 from bayesian_agents.rsaWorld import RSA_World
 from utils.numpy_functions import softmax
@@ -150,7 +150,7 @@ class RSA:
 			scores = scores*(self.initial_speakers[world.speaker].rationality_support[world.rationality])
 			# update prior to posterior
 			# print(scores.shape,prior.shape)
-			posterior = (scores + prior) - scipy.misc.logsumexp(scores + prior)
+			posterior = (scores + prior) - scipy.special.logsumexp(scores + prior)
 			# print("POSTERIOR",posterior)
 
 			return posterior
@@ -210,7 +210,7 @@ class RSA:
 			scores[n_tuple]=out[utterance]
 
 		scores = scores*state.listener_rationality
-		world_posterior = (scores + world_prior) - scipy.misc.logsumexp(scores + world_prior)
+		world_posterior = (scores + world_prior) - scipy.special.logsumexp(scores + world_prior)
 		# print("world posterior listener complex shape",world_posterior.shape)
 		return world_posterior
 

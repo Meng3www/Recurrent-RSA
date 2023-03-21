@@ -2,16 +2,16 @@
 
 import matplotlib
 matplotlib.use('Agg')
-import re
-import requests
-import time
-import pickle
-import tensorflow as tf
-import numpy as np
-from keras.preprocessing import image
-from collections import defaultdict
+# import re
+# import requests
+# import time
+# import pickle
+# import tensorflow as tf
+# import numpy as np
+# from keras.preprocessing import image
+# from collections import defaultdict
 
-from utils.config import *
+# from utils.config import *
 from utils.numpy_functions import uniform_vector, make_initial_prior
 from recursion_schemes.recursion_schemes import ana_greedy,ana_beam
 from bayesian_agents.joint_rsa import RSA
