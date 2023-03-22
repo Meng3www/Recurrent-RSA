@@ -2,8 +2,8 @@ import os.path
 from PIL import Image as PIL_Image
 import math
 from subprocess import call
-from charpragcap.utils.image_and_text_utils import vectorize_caption,valid_item,index_to_char,char_to_index,edit_region,get_img_from_id
-from charpragcap.utils.config import *
+from utils.image_and_text_utils import vectorize_caption,valid_item,index_to_char,char_to_index,edit_region,get_img_from_id
+from utils.config import *
 
 print("rep_size",rep_size)
 

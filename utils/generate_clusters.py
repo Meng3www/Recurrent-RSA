@@ -2,7 +2,7 @@ import pickle
 import numpy as np
 import re
 from nltk.corpus import stopwords
-from charpragcap.utils.image_and_text_utils import devectorize_caption,split_dataset,get_rep_from_id
+from utils.image_and_text_utils import devectorize_caption,split_dataset,get_rep_from_id
 import copy
 
 def cap_to_words(cap):
