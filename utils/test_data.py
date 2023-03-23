@@ -1,8 +1,11 @@
+from utils.data_stream import single_stream
 # show a first images and their ground truth captions
 # check that stored rep = generated rep for a few random ones
 # cehck that unmemoized is same as memoized
 
 # tests that the saved reps are aved in the right order and so on
+from utils.image_and_text_utils import *
+
 
 def check_reps():
 

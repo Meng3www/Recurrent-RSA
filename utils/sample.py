@@ -1,12 +1,12 @@
 import torch
-import matplotlib.pyplot as plt
-import numpy as np
-import argparse
-import pickle
-import os
+# import matplotlib.pyplot as plt
+# import numpy as np
+# import argparse
+# import pickle
+# import os
 from torch.autograd import Variable
-from torchvision import transforms
-from utils.build_vocab import Vocabulary
+# from torchvision import transforms
+# from utils.build_vocab import Vocabulary
 from PIL import Image
 import re
 
@@ -14,8 +14,6 @@ def to_var(x, volatile=False):
     if torch.cuda.is_available():
         x = x.cuda()
     return Variable(x, volatile=volatile)
-
-
 
 
 
@@ -34,8 +32,8 @@ def load_image_from_path(path, transform=None):
 
 def load_image(url, transform=None):
 
-    import urllib.request
-    from PIL import Image as PIL_Image
+    # import urllib.request
+    # from PIL import Image as PIL_Image
     import shutil
     import requests
 
@@ -43,14 +41,16 @@ def load_image(url, transform=None):
     hashed_url = re.sub(':','',hashed_url)
 
     response = requests.get(url, stream=True)
+    # print(url, response)
     with open('data/google_images/'+hashed_url+'.jpg', 'wb') as out_file:
+        # shutil.copyfileobj(response.raw, out_file)
         shutil.copyfileobj(response.raw, out_file)
     # del response
     print(url,response)
     # print(os.listdir())
 
 
-    image = Image.open('data/google_images/img'+hashed_url+'.jpg')
+    image = Image.open('data/google_images/'+hashed_url+'.jpg')
     # print("image loaded (sample.py)")
     image = image.resize([224, 224], Image.LANCZOS)
     # width = image.size[0]

@@ -141,7 +141,8 @@ class RSA:
 				# print(world.target,world.rationality,"FIRST")
 				out = self.listener(state=state,utterance=k,depth=depth-1)
 
-				
+				# print(world.target,"	", world.rationality,"	", world.speaker)
+				# print(out.shape)
 				scores.append(out[world.target,world.rationality,world.speaker])
 
 			scores = np.asarray(scores)

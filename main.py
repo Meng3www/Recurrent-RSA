@@ -18,15 +18,15 @@ from bayesian_agents.joint_rsa import RSA
 
 
 urls = [
-	"https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Arriva_T6_nearside.JPG/1200px-Arriva_T6_nearside.JPG",
-	"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/First_Student_IC_school_bus_202076.jpg/220px-First_Student_IC_school_bus_202076.jpg"
+	"https://images.pexels.com/photos/617278/pexels-photo-617278.jpeg",
+	"https://images.pexels.com/photos/209037/pexels-photo-209037.jpeg"
 	]
 
 # code is written to be able to jointly infer speaker's rationality and neural model, but for simplicity, let's assume these are fixed
 # the rationality of the S1
 rat = [100.0]
 # the neural model: captions trained on MSCOCO ("coco") are more verbose than VisualGenome ("vg")
-model = ["vg"]
+model = ["coco"]
 number_of_images = len(urls)
 # the model starts of assuming it's equally likely any image is the intended referent
 initial_image_prior=uniform_vector(number_of_images)
