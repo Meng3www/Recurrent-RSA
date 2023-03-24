@@ -1,12 +1,14 @@
 import numpy as np
 from collections import defaultdict
 import os.path
+
+import torch
+
 from utils.config import *
 # from keras.preprocessing import image
 
 ###IMAGE UTILS
-
-
+from utils.numpy_functions import softmax
 
 
 def overlap(target_box, candidate_box):
@@ -305,4 +307,37 @@ def split_dataset(trains=train_size,vals=val_size,tests=test_size):
     trains,vals,tests = ids[0:num_train],ids[num_train:num_val],ids[num_val:num_test]
     return trains,vals,tests
 
+if __name__ == '__main__':
+    # self.context_sentence=np.expand_dims(np.expand_dims(vectorize_caption("")[0],0),-1)
+    # print(vectorize_caption("")[0])
+    # print(np.expand_dims(vectorize_caption("")[0],0))
+    # print(np.expand_dims(np.expand_dims(vectorize_caption("")[0],0),-1))
+    ###########################
+
+    # caption_out = [[2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    #                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+    #                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
+    # caption_out = np.asarray(caption_out)
+    # print(caption_out.shape[1])
+    # one_hot = np.zeros((caption_out.shape[1], len(sym_set)))
+    # print(np.arange(caption_out.shape[1]))
+    # print(caption_out)
+    # one_hot[np.arange(caption_out.shape[1]), caption_out] = 1
+    # print(one_hot)
+    ####################
+
+    # outputs = torch.Tensor([[0.1444, 16.1051, -1.4842, -0.0915, -1.3676, 0.4422, -0.8526, 1.4083, 1.3006, 2.9520,
+    #                          1.2963, -1.8801, -1.9981, 0.0373, -2.1656, -1.9981, 1.7750, -0.9252, 0.2491, -3.0920,
+    #                          0.4877, -0.1215, -0.8786, 0.9930, 0.9459, 0.3786, -0.4282, -1.4973, 2.3619, -2.8101]])
+    # print(outputs.max(1))
+    # print(outputs.max(1)[1])
+    #######################
+
+    output_array = [-2.0931756, -13.163613, -4.51878, -1.4806149, 5.3065085, 0.52846956, 0.5214795, -0.1473798,
+                    -1.0154895, 0.18096218, 0.57851994, -1.4309534, 0.06974843, -3.6919928, -3.1461875,
+                    -0.18683684, 0.99207866, -1.9733756, 0.37662846, 1.3247187, -4.734657, -0.9168341, 1.5436826,
+                    3.7353818, -1.9386501, -2.0451682, 0.05063371, -4.1571794, 2.3229542, -4.774155]
+    output_array = np.asarray(output_array)
+    print(output_array)
+    print(softmax(output_array))
 

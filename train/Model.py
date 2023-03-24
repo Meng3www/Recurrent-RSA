@@ -93,7 +93,7 @@ class Model:
 		else:
 			from utils.sample import to_var,load_image,load_image_from_path
 			self.features = [self.encoder(to_var(load_image(url, self.transform), volatile=True)) for url in images]
-			self.default_image = self.encoder(to_var(load_image_from_path("data/default.jpg", self.transform), volatile=True))
+			# self.default_image = self.encoder(to_var(load_image_from_path("data/default.jpg", self.transform), volatile=True))
 
 
 			# self.speakers = [Model(path) for path in paths]
@@ -115,4 +115,12 @@ if __name__ == '__main__':
 		transforms.Normalize((0.485, 0.456, 0.406),
 							 (0.229, 0.224, 0.225))])
 	print(transform)
-			
+	image = Image.open('../data/google_images/test.jpg')
+	print(image)
+	print(transform(image).shape)
+	print(transform(image).unsqueeze(0).shape)
+
+# image = transform(image).unsqueeze(0)
+
+
+
