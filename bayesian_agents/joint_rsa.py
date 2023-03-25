@@ -258,4 +258,13 @@ class RSA:
 		return world_posterior
 
 
-
+if __name__ == '__main__':
+	scores = [[[-7.10969925]], [[-6.99300194]]]
+	scores = np.asarray(scores)
+	wprior = [[[-0.69314718]], [[-0.69314718]]]
+	wprior = np.asarray(wprior)
+	print(scores + wprior)
+	print(scipy.special.logsumexp(scores + wprior))
+	# Compute the log of the sum of exponentials of input elements.
+	# print(np.log(np.exp(-8.4154067) + np.exp(-8.91958475)))
+	print(scores + wprior - scipy.special.logsumexp(scores + wprior))

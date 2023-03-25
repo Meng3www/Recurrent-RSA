@@ -80,7 +80,7 @@ def ana_greedy(rsa,initial_world_prior,speaker_rationality,speaker, target, pass
 		s = rsa.speaker(state=state,world=world,depth=depth)
 		# print("S:",s)	
 		# print(s)
-		segment = np.argmax(s)
+		segment = np.argmax(s)  #########
 		# print("s",rsa.idx2seg[segment])
 		prob = np.max(s)
 		probs.append(prob)
@@ -128,14 +128,7 @@ def ana_beam(rsa,initial_world_prior,speaker_rationality, target,speaker, pass_p
 	context_sentence = start_from
 	state.context_sentence=context_sentence
 
-
 	world=RSA_World(target=target,rationality=speaker_rationality,speaker=speaker)
-
-
-
-	context_sentence = start_from
-	state.context_sentence=context_sentence
-
 
 	sent_worldprior_prob = [(state.context_sentence,state.world_priors,0.0)]
 
@@ -259,8 +252,11 @@ if __name__ == '__main__':
 	# world_priors = np.asarray(world_priors)
 	# print(world_priors.shape)				# (25, 2, 1, 1)
 	# print(world_priors[:8][:6].shape)  	# (6, 2, 1, 1)
-	world_priors = torch.tensor(world_priors)
-	print(world_priors.shape)  				# torch.Size([25, 2, 1, 1])
-	print(world_priors[:4][:6].shape)		# torch.Size([4, 2, 1, 1])
+	# world_priors = torch.tensor(world_priors)
+	# print(world_priors.shape)  				# torch.Size([25, 2, 1, 1])
+	# print(world_priors[:4][:6].shape)		# torch.Size([4, 2, 1, 1])
+	#########################
+
+
 
 
